@@ -28,4 +28,20 @@ public class ObjectManager : MonoBehaviour
 
         return character;
     }
+
+    public GameObject CreateMonster()
+    {
+        Object monsterObj = Resources.Load("Sprite/Monster1");
+        GameObject monster = (GameObject)Instantiate(monsterObj);
+
+        return monster;
+    }
+
+    public ParticleSystem CreateHitEffect()
+    {
+        Object effectObj = Resources.Load("Effect/Hit_Green");
+        GameObject effect = (GameObject)Instantiate(effectObj);
+
+        return effect.GetComponent<ParticleSystem>();
+    }
 }

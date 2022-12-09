@@ -58,5 +58,18 @@ public class UIManager : MonoBehaviour
         if (uiList.ContainsKey(uiName))
             uiList[uiName].SetActive(false);
     }
+
+    public GameObject GetUI(string uiName)
+    {
+        if (uiList.ContainsKey(uiName))
+            return uiList[uiName];
+
+        return null;
+    }
+
+    public void ClearList()
+    {
+        uiList.Clear();
+    }
     #endregion
 }

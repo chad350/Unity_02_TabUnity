@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 6831091876909633968}
   - component: {fileID: 6831091876909633971}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: txtHp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,6 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 6831091878328346986}
   imgFill: {fileID: 6831091877134765979}
+  txtHp: {fileID: 6831091876909633971}
   txtLevel: {fileID: 6831091876772317440}
   txtName: {fileID: 6831091877163927357}
   txtGold: {fileID: 6831091878636188838}
@@ -787,7 +788,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 6831091877134765978}
   m_HandleRect: {fileID: 0}

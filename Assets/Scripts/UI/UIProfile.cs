@@ -9,19 +9,26 @@ public class UIProfile : MonoBehaviour
     public Slider hpBar;
     public Image imgFill;
 
+    public TMP_Text txtHp;
+
     public TMP_Text txtLevel;
     public TMP_Text txtName;
     public TMP_Text txtGold;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
+        RefreshState();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RefreshState()
     {
-        
+        txtLevel.text = $"Lv. {GameManager.GetInstance().level}";
+        txtName.text = $"{GameManager.GetInstance().playerName}";
+        txtGold.text = $"{GameManager.GetInstance().gold}g";
+
+        hpBar.maxValue = GameManager.GetInstance().totalHp;
+        hpBar.value = GameManager.GetInstance().curHp;
+
+        txtHp.text = $"{hpBar.value} / {hpBar.maxValue}";
     }
 }
