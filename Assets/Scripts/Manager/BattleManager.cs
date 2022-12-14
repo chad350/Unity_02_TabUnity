@@ -26,6 +26,8 @@ public class BattleManager : MonoBehaviour
     {
         monsterData = monster;
 
+        EffectManager.GetInstance().InitEffectPool(10);
+
         UIManager.GetInstance().OpenUI("UITab");
 
         StartCoroutine("BattleProgress");
@@ -52,13 +54,8 @@ public class BattleManager : MonoBehaviour
     }
 
     public void AttackMonster()
-    {
-        float randX = Random.Range(-1.5f, 1.5f);
-        float randY = Random.Range(-1.5f, 1.5f);
-
-        var particle = ObjectManager.GetInstance().CreateHitEffect();
-        particle.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-        particle.transform.localPosition = new Vector3(0 + randX, 0.7f + randY, -0.5f);
+    {     
+        EffectManager.GetInstance().UseEffect();
 
         monsterData.hp--;
 

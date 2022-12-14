@@ -34,10 +34,17 @@ public class ScenesManager : MonoBehaviour
 
     public void ChangeScene(Scene scene)
     {
-        UIManager.GetInstance().ClearList();
+        ResetSetting();
 
         currentScene = scene;        
         SceneManager.LoadScene(scene.ToString());        
     }
+
+    void ResetSetting()
+    {
+        UIManager.GetInstance().ClearList();
+        EffectManager.GetInstance().ReleasePool();
+    }
+
     #endregion
 }
