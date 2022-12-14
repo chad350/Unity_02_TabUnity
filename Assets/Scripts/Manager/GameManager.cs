@@ -30,10 +30,34 @@ public class GameManager : MonoBehaviour
     public int totalHp = 100; // 증가
     public int curHp = 100; // 증가, 감소
 
+    public void LoadData()
+    {
+        playerName = PlayerPrefs.GetString("playerName", "Chad");
+
+        level = PlayerPrefs.GetInt("level", 1);
+        gold = PlayerPrefs.GetInt("gold", 500);
+        totalHp = PlayerPrefs.GetInt("totalHp", 100);
+        curHp = PlayerPrefs.GetInt("curHp", 100);
+    }
+
+    // key            level  gold    totalHp    curHp
+    // value            1    500     100        100
+
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetString("playerName" , playerName);
+
+        PlayerPrefs.SetInt("level", level);
+        PlayerPrefs.SetInt("gold", gold);
+        PlayerPrefs.SetInt("totalHp", totalHp);
+        PlayerPrefs.SetInt("curHp", curHp);
+    }
 
     public void AddGold(int gold)
     {
         this.gold += gold;
+        SaveData();
     }
 
     public bool SpendGold(int gold)
@@ -41,6 +65,7 @@ public class GameManager : MonoBehaviour
         if (this.gold >= gold)
         {
             this.gold -= gold;
+            SaveData();
             return true;
         }
 
@@ -50,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void IncreaseTotalHP(int addHp)
     {
         totalHp += addHp;
+        SaveData();
     }
 
     public void SetCurrentHP(int hp)
@@ -64,6 +90,7 @@ public class GameManager : MonoBehaviour
         if (curHp < 0)
             curHp = 0;  // cur -> 0
 
+        SaveData();
         // curHp = Mathf.Clamp(curHp, 0, 100);
     }
 }
